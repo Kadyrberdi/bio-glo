@@ -4,6 +4,7 @@ const modal = () => {
   }
   console.log('this is modal.js');
   console.log('And this is new code from webpack');
+  console.log('new check code');
 }
 
 export  default modal;
