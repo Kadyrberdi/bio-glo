@@ -11,5 +11,5 @@ import elementClosest from 'element-closest';
 elementClosest(window);
 
 
-import modal from './modules/modals'; 
-modal();
+import popup from './modules/popup'; 
+popup();
