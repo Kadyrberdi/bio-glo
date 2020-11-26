@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("this is index.js"),console.log("this console watched live"),(()=>{for(let o=0;o<3;o++)console.log(o);console.log("this is modal.js"),console.log("And this is new code from webpack")})()})();
