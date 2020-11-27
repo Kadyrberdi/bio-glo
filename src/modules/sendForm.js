@@ -66,18 +66,18 @@ const sendForm = () => {
             request.send(JSON.stringify(body));
         };
 
-          phone.forEach(elem => {
-              const validator = function () {
-              elem.value = elem.value.replace(/[^0-9+]/ig, '');
-              };
-              elem.addEventListener('input', validator);
-          });
-          name.forEach(elem => {
-              const validator = function () {
-              elem.value = elem.value.replace(/[^а-яА-Я \ ]/ig, '');
-              };
-              elem.addEventListener('input', validator);
-          });
+        phone.forEach(elem => {
+            const validator = function () {
+                elem.value = elem.value.replace(/[^0-9+]/ig, '');
+            };
+            elem.addEventListener('input', validator);
+        });
+        name.forEach(elem => {
+            const validator = function () {
+                elem.value = elem.value.replace(/[^а-яА-Я \ ]/ig, '');
+            };
+            elem.addEventListener('input', validator);
+        });
 };
 
 export  default sendForm;

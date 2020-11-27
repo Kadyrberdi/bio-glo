@@ -13,3 +13,5 @@ import popup from './modules/popup';
 popup();
 import sendForm from './modules/sendForm'; 
 sendForm();
+import accordion from './modules/accordion'; 
+accordion();
