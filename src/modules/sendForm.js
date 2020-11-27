@@ -4,15 +4,14 @@ const sendForm = () => {
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
         const form = document.querySelectorAll('form'), 
-            phone = document.querySelectorAll('input[name="user_phone"]'),   
-            name = document.querySelectorAll('input[name="user_name"]'), 
-            question = document.querySelectorAll('input[name="user_quest"]');  
-
+        phone = document.querySelectorAll('input[name="user_phone"]'),   
+        name = document.querySelectorAll('input[name="user_name"]');  
+        
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2 rem;';
         statusMessage.style.color = 'grey';
-
-        form.forEach(elem => {
+        
+        form.forEach(elem => {    
             elem.addEventListener('submit', (event) => {
                 const inputs = document.querySelectorAll('form input'),
                     popup = document.querySelector('.popup');
@@ -67,14 +66,18 @@ const sendForm = () => {
             request.send(JSON.stringify(body));
         };
 
-    for (let i = 0; i < form.length; i++) {
-          const validator = function () {
-              phone[i].value = phone[i].value.replace(/[^0-9+]/ig, '');
-              name[i].value = name[i].value.replace(/[^а-яА-Я \ ]/ig, '');
-          }
-          phone[i].addEventListener('input', validator);
-          name[i].addEventListener('input', validator);
-    }
+          phone.forEach(elem => {
+              const validator = function () {
+              elem.value = elem.value.replace(/[^0-9+]/ig, '');
+              };
+              elem.addEventListener('input', validator);
+          });
+          name.forEach(elem => {
+              const validator = function () {
+              elem.value = elem.value.replace(/[^а-яА-Я \ ]/ig, '');
+              };
+              elem.addEventListener('input', validator);
+          });
 };
 
 export  default sendForm;
