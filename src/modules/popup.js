@@ -1,6 +1,7 @@
 const popup = () => {
     const popup = document.querySelector('.popup'),
-    callBtn = document.querySelectorAll('.call-btn');
+    callBtn = document.querySelectorAll('.call-btn'),
+    checkBtn = document.querySelector('.check-btn');
 
     callBtn.forEach(elem => {
         elem.addEventListener('click', (event) => {
@@ -8,6 +9,11 @@ const popup = () => {
             popup.style.display = 'block';
         });
     });
+    checkBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            popup.style.display = 'block';
+    });
+
     popup.addEventListener('click', event => {
         let target = event.target;
             if (target.classList.contains('popup-close')) {
