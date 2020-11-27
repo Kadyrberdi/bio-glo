@@ -1,6 +1,4 @@
 'use strict';
-console.log('this is index.js');
-console.log('this console watched live');
 
 import "@babel/polyfill";
 import 'nodelist-foreach-polyfill';
