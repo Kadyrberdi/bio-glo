@@ -13,3 +13,5 @@ elementClosest(window);
 
 import popup from './modules/popup'; 
 popup();
+import sendForm from './modules/sendForm'; 
+sendForm();
