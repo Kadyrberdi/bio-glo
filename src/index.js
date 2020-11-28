@@ -15,3 +15,5 @@ import sendForm from './modules/sendForm';
 sendForm();
 import accordion from './modules/accordion'; 
 accordion();
+import calc from './modules/calc'; 
+calc();

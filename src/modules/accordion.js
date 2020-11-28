@@ -1,7 +1,8 @@
 const accordion = () => {
     const tabHeader = document.querySelectorAll('.panel-group'),
-    tab = document.querySelectorAll('.panel'),
-    tabContent = document.querySelectorAll('.collapse');
+        tab = document.querySelectorAll('.panel'),
+        tabContent = document.querySelectorAll('.collapse'),
+        nextBtn = document.querySelectorAll('.construct-btn');
 
     const toggleTabContent = index => {
             for (let i = 0; i < tabContent.length; i++) {
@@ -14,9 +15,8 @@ const accordion = () => {
     };
     tabHeader.forEach(elem => {
         elem.addEventListener('click', (event) => {
-            event.preventDefault();
-            let target = event.target;
-            target = target.closest('.panel'); // если не найдет поднимается на вверх и ищет его родителей
+            let target = event.target;            
+            target = target.closest('.panel');
             if (target.classList.contains('panel')) {
                 tab.forEach((item, i) => {
                     if (item === target) {
@@ -25,7 +25,16 @@ const accordion = () => {
                 });
             }
         }); 
-    }); 
+        elem.addEventListener('click', (event) => {
+            if (event.target.matches('.construct-btn')) {
+                nextBtn.forEach((item, i) => {
+                    if (item === event.target) {
+                        toggleTabContent(i + 1);
+                    }
+                });
+            }
+        });
+    });
 };
 
 export  default accordion;

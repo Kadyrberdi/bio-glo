@@ -68,7 +68,7 @@ const sendForm = () => {
 
         phone.forEach(elem => {
             const validator = function () {
-                elem.value = elem.value.replace(/[^0-9+]/ig, '');
+                elem.value = elem.value.replace(/[^0-9+]{7,12}/ig, '');
             };
             elem.addEventListener('input', validator);
         });
