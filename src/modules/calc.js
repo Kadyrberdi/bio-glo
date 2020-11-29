@@ -8,7 +8,6 @@ const calc = () => {
 
     onoffswitchOne = TwoChamber;
 
-    console.log('onoffswitchOne: ', onoffswitchOne);
 
     tabHeader.forEach(elem => {
         elem.addEventListener('click', (event) => {
