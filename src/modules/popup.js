@@ -19,6 +19,7 @@ const popup = () => {
     });
     getCalcBtn.addEventListener('click', () => {
         popupDiscount.style.display = 'block';
+        popupCall.style.display = 'none';
     });
     discountBtn.forEach(elem => {
         elem.addEventListener('click', () => {
