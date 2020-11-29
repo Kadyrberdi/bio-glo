@@ -15,6 +15,7 @@ const accordion = () => {
     };
     tabHeader.forEach(elem => {
         elem.addEventListener('click', (event) => {
+            event.preventDefault();
             let target = event.target;            
             target = target.closest('.panel');
             if (target.classList.contains('panel')) {
@@ -26,7 +27,16 @@ const accordion = () => {
             }
         }); 
         elem.addEventListener('click', (event) => {
-            if (event.target.matches('.construct-btn')) {
+            event.preventDefault();
+            if (event.target.matches('.construct-btn') || event.target.tagName === 'SPAN') { // вторая условия не рабочий
+                nextBtn.forEach((item, i) => {
+                    if (item === event.target) {
+                        toggleTabContent(i + 1);
+                    }
+                });
+            }
+            // не работающий код 
+            if (event.target.tagName === 'SPAN') {
                 nextBtn.forEach((item, i) => {
                     if (item === event.target) {
                         toggleTabContent(i + 1);

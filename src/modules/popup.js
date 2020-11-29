@@ -1,40 +1,62 @@
 const popup = () => {
-    const popup = document.querySelector('.popup'),
+    const popup = document.querySelectorAll('.popup'),
+    popupCall = document.querySelector('.popup-call'),
+    popupDiscount = document.querySelector('.popup-discount'),
+    popupCheck = document.querySelector('.popup-check'),
+    popupConsultation = document.querySelector('.popup-consultation'),
     callBtn = document.querySelectorAll('.call-btn'),
+    getCalcBtn = document.querySelectorAll('.construct-btn')[3],
     checkBtn = document.querySelector('.check-btn'),
-    input = document.querySelectorAll('input'),
+    discountBtn = document.querySelectorAll('.discount-btn'),
+    consultationBtn = document.querySelector('.consultation-btn'),
     phone = document.querySelectorAll('input[name="user_phone"]'),   
     name = document.querySelectorAll('input[name="user_name"]'); 
-    console.log('input: ', input);
-    console.log('phone: ', phone);
-    console.log('name: ', name);
 
     callBtn.forEach(elem => {
-        elem.addEventListener('click', (event) => {
-            event.preventDefault();
-            popup.style.display = 'block';
+        elem.addEventListener('click', () => {
+            popupCall.style.display = 'block';
         });
     });
-    checkBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            popup.style.display = 'block';
+    getCalcBtn.addEventListener('click', () => {
+        popupDiscount.style.display = 'block';
+    });
+    discountBtn.forEach(elem => {
+        elem.addEventListener('click', () => {
+            popupDiscount.style.display = 'block';
+        });
+    });
+    checkBtn.addEventListener('click', () => {
+        popupCheck.style.display = 'block';
+    });
+    consultationBtn.addEventListener('click', () => {
+        popupConsultation.style.display = 'block';
     });
 
-    popup.addEventListener('click', event => {
-        let target = event.target;
-            if (target.classList.contains('popup-close')) {
-                phone[2].removeAttribute('required', '');
-                name[1].removeAttribute('required', '');
-                popup.style.display = 'none';
-            } else {
-                target = target.closest('.popup-content');
-                if (!target) {
-                    popup.style.display = 'none';
+    popup.forEach(elem => {
+        elem.addEventListener('click', event => {
+            let target = event.target;
+                if (target.classList.contains('popup-close')) {
+                    phone.forEach(elem => {
+                        elem.removeAttribute('required', '');
+                    });
+                    name.forEach(elem => {
+                        elem.removeAttribute('required', '');
+                    });
+                    popupCall.style.display = 'none';
+                    popupDiscount.style.display = 'none';
+                    popupCheck.style.display = 'none';
+                    popupConsultation.style.display = 'none';
+                } else {
+                    target = target.closest('.popup-content');
+                    if (!target) {
+                        popupCall.style.display = 'none';
+                        popupDiscount.style.display = 'none';
+                        popupCheck.style.display = 'none';
+                        popupConsultation.style.display = 'none';
+                    }
                 }
-            }
+        });
     });
-
-
-}
+};
 
 export  default popup;
