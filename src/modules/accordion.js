@@ -34,8 +34,6 @@ const accordion = () => {
     const addBtn = document.querySelector('.add-sentence-btn'),
         hiddenElem = document.querySelector('.visible-sm-block'),
         hiddenElems = document.querySelectorAll('.hidden');
-        console.log('addBtn: ', addBtn);
-        console.log('hiddenElems: ', hiddenElems);
     addBtn.addEventListener('click', () => {
         hiddenElem.classList.remove('visible-sm-block');
         hiddenElems.forEach(elem => {

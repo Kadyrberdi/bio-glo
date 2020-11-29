@@ -1,5 +1,6 @@
 const calc = () => {
-    const tabHeader = document.querySelectorAll('.panel-group');
+    const checkbox = document.querySelectorAll('[type=checkbox]');
+    console.log('checkbox: ', checkbox);
     let onoffswitchOne = document.getElementById('myonoffswitch'),
         onoffswitchTwo = document.getElementById('myonoffswitch-two');
         
@@ -8,17 +9,6 @@ const calc = () => {
 
     onoffswitchOne = TwoChamber;
 
-
-    tabHeader.forEach(elem => {
-        elem.addEventListener('click', (event) => {
-            let target = event.target;            
-            if (target.id === 'myonoffswitch') {
-                onoffswitchOne = oneChamber;
-                console.log('onoffswitchOne: ', onoffswitchOne);
-            }
-            
-        }); 
-    });  
 
 };
 
