@@ -3,7 +3,6 @@ const accordion = () => {
     const SecondAccordion = document.querySelector('#accordion-two');
 
     const toggleBlock = (event) => {
-        event.preventDefault();
         const { target } = event;
 
         if (target.closest('.panel-heading')) {

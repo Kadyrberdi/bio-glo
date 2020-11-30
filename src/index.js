@@ -15,5 +15,5 @@ import popup from './modules/popup';
 popup();
 import sendForm from './modules/sendForm'; 
 sendForm();
-import calculator from './modules/calculator'; 
-calculator();
+import calc from './modules/calc'; 
+calc();
