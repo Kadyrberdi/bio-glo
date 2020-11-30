@@ -3,18 +3,29 @@ const sendForm = () => {
             loadMessage = 'Загрузка ...',
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-        const form = document.querySelectorAll('form'), 
+        const forms = document.querySelectorAll('form'), 
+        directorForm = document.querySelector('.director-form'),
+        popup = document.querySelector('.popup'),
         phone = document.querySelectorAll('input[name="user_phone"]'),   
+        question = document.querySelector('input[name="user_quest"]'),   
         name = document.querySelectorAll('input[name="user_name"]');  
         
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2 rem;';
-        statusMessage.style.color = 'grey';
+
+        function hidePopup() {
+            popup.style.display = 'none';
+        }
+        function hideStsMsg() {
+            statusMessage.textContent = '';
+        }
         
-        form.forEach(elem => {    
+
+        forms.forEach(elem => {    
             elem.addEventListener('submit', (event) => {
-                const inputs = document.querySelectorAll('form input'),
-                    popup = document.querySelector('.popup');
+                const inputs = document.querySelectorAll('form input');
+                let quest = question.value;
+                console.log('quest: ', quest);
                 event.preventDefault();
                 elem.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
@@ -25,13 +36,6 @@ const sendForm = () => {
                     body[key] = val;
                 }); 
                 
-                function hidePopup() {
-                    popup.style.display = 'none';
-                }
-                function hideStsMsg() {
-                    statusMessage.textContent = '';
-                }
-                
                 postData(body, () => {
                     statusMessage.textContent = successMessage;
                     setTimeout(hideStsMsg, 2000);
@@ -40,6 +44,7 @@ const sendForm = () => {
                     statusMessage.textContent = errorMessage;
                     console.error(error);
                     setTimeout(hideStsMsg, 2000);
+                    setTimeout(hidePopup, 3000);
                 });
                 //4) После отправки инпуты должны очищаться
                 for (let i = 0; i < inputs.length; i++) {
