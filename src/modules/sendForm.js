@@ -31,19 +31,20 @@ const sendForm = () => {
                 elem.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
                 popupDiscount.classList.add('calculator-data');
+                console.log('popupDiscount: ', popupDiscount);
 
                 const formData = new FormData(elem);
-                let body = {};
-                formData.forEach((val, key) => {
-                    body[key] = val;
-                }); 
-
                 if(elem.closest('.calculator-data')){
                     const construct = document.querySelectorAll('.calculator');
                     construct.forEach((item) =>{
                         formData.append(item.getAttribute('name'), item.value);
                     });
                 }
+                let body = {};
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                }); 
+
                 
                 postData(body, () => {
                     statusMessage.textContent = successMessage;
