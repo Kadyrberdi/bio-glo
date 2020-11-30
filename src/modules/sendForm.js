@@ -31,7 +31,6 @@ const sendForm = () => {
                 elem.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
                 popupDiscount.classList.add('calculator-data');
-                console.log('popupDiscount: ', popupDiscount);
 
                 const formData = new FormData(elem);
                 if(elem.closest('.calculator-data')){
