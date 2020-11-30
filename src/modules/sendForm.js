@@ -9,6 +9,8 @@ const sendForm = () => {
         popup = document.querySelector('.popup'),
         popupConsultation = document.querySelector('.popup-consultation'),
         popupDiscount = document.querySelector('.popup-discount'),
+        calcResult = document.getElementById('calc-result'),
+        distance = document.getElementById('distance'),
         phone = document.querySelectorAll('input[name="user_phone"]'),   
         userQuestion = document.querySelector('input[name="user_quest"]'), 
         quest = document.querySelector('#quest'),  
@@ -33,6 +35,7 @@ const sendForm = () => {
                 popupDiscount.classList.add('calculator-data');
 
                 const formData = new FormData(elem);
+
                 if(elem.closest('.calculator-data')){
                     const construct = document.querySelectorAll('.calculator');
                     construct.forEach((item) =>{
@@ -60,6 +63,8 @@ const sendForm = () => {
                     inputs[i].value = '';
                 }
                 popupDiscount.classList.remove('calculator-data');
+                calcResult.value = '';
+                distance.value = '';
             });
         });
 
