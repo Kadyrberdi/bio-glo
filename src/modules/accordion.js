@@ -22,7 +22,7 @@ const accordion = () => {
             const child = parent.querySelector('.panel-collapse');
             const nextBlock = parent.nextSibling.nextSibling;
             const nextBlockChild = nextBlock.querySelector('.panel-collapse');
-
+            
             child.classList.remove('in');
             nextBlockChild.classList.add('in');
         }
