@@ -1,38 +1,39 @@
 const popup = () => {
     const popup = document.querySelectorAll('.popup'),
+    popupBtn = document.querySelectorAll('.button'),
     popupCall = document.querySelector('.popup-call'),
     popupDiscount = document.querySelector('.popup-discount'),
     popupCheck = document.querySelector('.popup-check'),
     popupConsultation = document.querySelector('.popup-consultation'),
     callBtn = document.querySelectorAll('.call-btn'),
     getCalcBtn = document.querySelectorAll('.construct-btn')[3],
-    checkBtn = document.querySelector('.check-btn'),
-    discountBtn = document.querySelectorAll('.discount-btn'),
-    consultationBtn = document.querySelector('.consultation-btn'),
     phone = document.querySelectorAll('input[name="user_phone"]'),   
     name = document.querySelectorAll('input[name="user_name"]'); 
 
     callBtn.forEach(elem => {
-        elem.addEventListener('click', () => {
+        elem.addEventListener('click', (event) => {
+            event.preventDefault();
             popupCall.style.display = 'block';
         });
     });
+
     getCalcBtn.addEventListener('click', () => {
         popupDiscount.style.display = 'block';
         popupCall.style.display = 'none';
     });
-    discountBtn.forEach(elem => {
-        elem.addEventListener('click', () => {
-            popupDiscount.style.display = 'block';
+
+    popupBtn.forEach((elem) =>{
+        elem.addEventListener('click', (event) =>{
+            if(event.target.matches('.discount-btn')){
+                popupDiscount.style.display = 'block';
+            }else if(event.target.matches('.check-btn')){
+                popupCheck.style.display = 'block';
+            }/* else if(event.target.matches('.consultation-btn')){
+                popupConsultation.style.display = 'block';
+            } */
         });
     });
-    checkBtn.addEventListener('click', () => {
-        popupCheck.style.display = 'block';
-    });
-    consultationBtn.addEventListener('click', () => {
-        popupConsultation.style.display = 'block';
-    });
-
+    
     popup.forEach(elem => {
         elem.addEventListener('click', event => {
             let target = event.target;

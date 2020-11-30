@@ -56,10 +56,10 @@ const sendForm = () => {
         mainForm.addEventListener('submit', (event) => {  
                 const inputs = document.querySelectorAll('form input');
                 event.preventDefault();
-                elem.appendChild(statusMessage);
+                mainForm.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
 
-                const formData = new FormData(elem);
+                const formData = new FormData(mainForm);
                 let body = {};
                 formData.forEach((val, key) => {
                     body[key] = val;
@@ -85,6 +85,7 @@ const sendForm = () => {
             event.preventDefault();
             let questions = userQuestion.value;
             quest.value = questions;
+            popupConsultation.style.display = 'block';
         });
 
         const postData = (body, outputData, errorData) => {
