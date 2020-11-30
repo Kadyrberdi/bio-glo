@@ -6,7 +6,6 @@ const popup = () => {
     popupCheck = document.querySelector('.popup-check'),
     popupConsultation = document.querySelector('.popup-consultation'),
     callBtn = document.querySelectorAll('.call-btn'),
-    getCalcBtn = document.querySelectorAll('.construct-btn')[3],
     phone = document.querySelectorAll('input[name="user_phone"]'),   
     name = document.querySelectorAll('input[name="user_name"]'); 
 
@@ -17,20 +16,13 @@ const popup = () => {
         });
     });
 
-    getCalcBtn.addEventListener('click', () => {
-        popupDiscount.style.display = 'block';
-        popupCall.style.display = 'none';
-    });
-
     popupBtn.forEach((elem) =>{
         elem.addEventListener('click', (event) =>{
             if(event.target.matches('.discount-btn')){
                 popupDiscount.style.display = 'block';
             }else if(event.target.matches('.check-btn')){
                 popupCheck.style.display = 'block';
-            }/* else if(event.target.matches('.consultation-btn')){
-                popupConsultation.style.display = 'block';
-            } */
+            }
         });
     });
     

@@ -7,7 +7,9 @@ const calc = () => {
         diameterOne = document.querySelector('.diameter-one'),
         ringsOne = document.querySelector('.rings-one'),
         diameterTwo = document.querySelector('.diameter-two'),
-        ringsTwo = document.querySelector('.rings-two');
+        ringsTwo = document.querySelector('.rings-two'),
+        popupDiscount = document.querySelector('.popup-discount'),
+        getCalcBtn = document.querySelectorAll('.construct-btn')[3];
   
   
     checkboxTwo.checked = false;
@@ -68,13 +70,19 @@ const calc = () => {
         calcResult.value = result;
     };
   
-  calcBlock.addEventListener('change', (event) => {
-    let target = event.target;
+    calcBlock.addEventListener('change', (event) => {
+        let target = event.target;
 
-    if(target.matches('select') || target.matches('input')){
-      countSumm();
-    }
-  });
+        if(target.matches('select') || target.matches('input')){
+            countSumm();
+        }
+    });
+
+    
+    getCalcBtn.addEventListener('click', () => {
+        popupDiscount.style.display = 'block';
+    });
+
 }; 
 
 export default calc;

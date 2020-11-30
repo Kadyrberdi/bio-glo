@@ -16,7 +16,7 @@ const accordion = () => {
                 }
             });
         }
-        if (target.closest('.construct-btn')) {
+        if (target.closest('.next-btn')) {
             const parent = target.closest('.panel-default');
             const child = parent.querySelector('.panel-collapse');
             const nextBlock = parent.nextSibling.nextSibling;
