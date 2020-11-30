@@ -3,11 +3,14 @@ const sendForm = () => {
             loadMessage = 'Загрузка ...',
             successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
-        const forms = document.querySelectorAll('form'), 
+        const captureForm = document.querySelectorAll('.capture-form'), 
+        mainForm = document.querySelector('.main-form'),
         directorForm = document.querySelector('.director-form'),
         popup = document.querySelector('.popup'),
+        popupConsultation = document.querySelector('.popup-consultation'),
         phone = document.querySelectorAll('input[name="user_phone"]'),   
-        question = document.querySelector('input[name="user_quest"]'),   
+        userQuestion = document.querySelector('input[name="user_quest"]'), 
+        quest = document.querySelector('#quest'),  
         name = document.querySelectorAll('input[name="user_name"]');  
         
         const statusMessage = document.createElement('div');
@@ -20,12 +23,9 @@ const sendForm = () => {
             statusMessage.textContent = '';
         }
         
-
-        forms.forEach(elem => {    
+        captureForm.forEach(elem => {    
             elem.addEventListener('submit', (event) => {
                 const inputs = document.querySelectorAll('form input');
-                let quest = question.value;
-                console.log('quest: ', quest);
                 event.preventDefault();
                 elem.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
@@ -51,6 +51,40 @@ const sendForm = () => {
                     inputs[i].value = '';
                 }
             });
+        });
+
+        mainForm.addEventListener('submit', (event) => {  
+                const inputs = document.querySelectorAll('form input');
+                event.preventDefault();
+                elem.appendChild(statusMessage);
+                statusMessage.textContent = loadMessage;
+
+                const formData = new FormData(elem);
+                let body = {};
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                }); 
+                
+                postData(body, () => {
+                    statusMessage.textContent = successMessage;
+                    setTimeout(hideStsMsg, 2000);
+                    setTimeout(hidePopup, 3000);
+                }, (error) => {                
+                    statusMessage.textContent = errorMessage;
+                    console.error(error);
+                    setTimeout(hideStsMsg, 2000);
+                    setTimeout(hidePopup, 3000);
+                });
+                //4) После отправки инпуты должны очищаться
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].value = '';
+                }            
+        });
+
+        directorForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            let questions = userQuestion.value;
+            quest.value = questions;
         });
 
         const postData = (body, outputData, errorData) => {
