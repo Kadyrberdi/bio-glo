@@ -17,3 +17,4 @@ import sendForm from './modules/sendForm';
 sendForm();
 import calc from './modules/calc'; 
 calc();
+
