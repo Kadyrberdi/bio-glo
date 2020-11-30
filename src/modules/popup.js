@@ -7,7 +7,8 @@ const popup = () => {
     popupConsultation = document.querySelector('.popup-consultation'),
     callBtn = document.querySelectorAll('.call-btn'),
     phone = document.querySelectorAll('input[name="user_phone"]'),   
-    name = document.querySelectorAll('input[name="user_name"]'); 
+    name = document.querySelectorAll('input[name="user_name"]'),
+    getCalcBtn = document.querySelectorAll('.construct-btn')[3];
 
     callBtn.forEach(elem => {
         elem.addEventListener('click', (event) => {
@@ -24,6 +25,12 @@ const popup = () => {
                 popupCheck.style.display = 'block';
             }
         });
+    });
+    
+    
+    getCalcBtn.addEventListener('click', () => {
+        popupDiscount.style.display = 'block';
+        popupCall.style.display = 'none';
     });
     
     popup.forEach(elem => {

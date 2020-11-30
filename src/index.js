@@ -13,8 +13,8 @@ import accordion from './modules/accordion';
 accordion();
 import popup from './modules/popup'; 
 popup();
-import calc from './modules/calc'; 
-calc();
 import sendForm from './modules/sendForm'; 
 sendForm();
+import calc from './modules/calc'; 
+calc();
 

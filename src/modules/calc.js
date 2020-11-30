@@ -7,10 +7,14 @@ const calc = () => {
         diameterOne = document.querySelector('.diameter-one'),
         ringsOne = document.querySelector('.rings-one'),
         diameterTwo = document.querySelector('.diameter-two'),
-        ringsTwo = document.querySelector('.rings-two'),
-        popupDiscount = document.querySelector('.popup-discount'),
-        getCalcBtn = document.querySelectorAll('.construct-btn')[3];
+        ringsTwo = document.querySelector('.rings-two');
   
+    if (!checkboxOne.checked) {
+        secondWell.style.display = 'none';
+        calcResult.value = 10000;
+        diameterTwo.classList.remove('calc');
+        ringsTwo.classList.remove('calc');
+    }
   
     checkboxTwo.checked = false;
 
@@ -25,9 +29,13 @@ const calc = () => {
 
         if (checkboxOne && checkboxOne.checked) { // выбрано две камеры
           secondWell.style.display = 'block';
+          diameterTwo.classList.add('calc');
+          ringsTwo.classList.add('calc');
           result = 15000;
         } else if (checkboxOne && !checkboxOne.checked) { // выбрана одна камера
           secondWell.style.display = 'none';
+          diameterTwo.classList.remove('calc');
+          ringsTwo.classList.remove('calc');
           result = 10000;
         }
         // диаметр
@@ -76,11 +84,6 @@ const calc = () => {
         if(target.matches('select') || target.matches('input')){
             countSumm();
         }
-    });
-
-    
-    getCalcBtn.addEventListener('click', () => {
-        popupDiscount.style.display = 'block';
     });
 
 }; 

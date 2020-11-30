@@ -8,6 +8,7 @@ const sendForm = () => {
         directorForm = document.querySelector('.director-form'),
         popup = document.querySelector('.popup'),
         popupConsultation = document.querySelector('.popup-consultation'),
+        popupDiscount = document.querySelector('.popup-discount'),
         phone = document.querySelectorAll('input[name="user_phone"]'),   
         userQuestion = document.querySelector('input[name="user_quest"]'), 
         quest = document.querySelector('#quest'),  
@@ -29,12 +30,20 @@ const sendForm = () => {
                 event.preventDefault();
                 elem.appendChild(statusMessage);
                 statusMessage.textContent = loadMessage;
+                popupDiscount.classList.add('calculator-data');
 
                 const formData = new FormData(elem);
                 let body = {};
                 formData.forEach((val, key) => {
                     body[key] = val;
                 }); 
+
+                if(elem.closest('.calculator-data')){
+                    const construct = document.querySelectorAll('.calculator');
+                    construct.forEach((item) =>{
+                        formData.append(item.getAttribute('name'), item.value);
+                    });
+                }
                 
                 postData(body, () => {
                     statusMessage.textContent = successMessage;
@@ -50,6 +59,7 @@ const sendForm = () => {
                 for (let i = 0; i < inputs.length; i++) {
                     inputs[i].value = '';
                 }
+                popupDiscount.classList.remove('calculator-data');
             });
         });
 

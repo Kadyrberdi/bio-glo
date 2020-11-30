@@ -176,14 +176,14 @@
                                 <div class="title-text">первый колодец (приемный)</div>
                                 <div class="select-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand diameter-one">
+                                    <select class="form-control expand diameter-one calculator">
                                         <option>1.4 метра</option>
                                         <option>2 метра</option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand rings-one">
+                                    <select class="form-control expand rings-one calculator">
                                         <option>1 штука</option>
                                         <option>2 штуки</option>
                                         <option>3 штуки</option>
@@ -194,14 +194,14 @@
                                     <div class="title-text">второй колодец (дренажный)</div>
                                 <div class="select-box">
                                     <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand diameter-two">
+                                    <select class="form-control expand diameter-two calculator">
                                         <option>1.4 метра</option>
                                         <option>2 метра</option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand rings-two">
+                                    <select class="form-control expand rings-two calculator">
                                         <option>1 штука</option>
                                         <option>2 штуки</option>
                                         <option>3 штуки</option>
@@ -256,7 +256,7 @@
                              aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <p>Введите расстояние до дома</p>
-                                <input type="text">
+                                <input id="distance" class="numders calculator" type="text" name="calc-dist-home" type="text">
                                 <button class="button construct-btn call-btn">Получить расчет и скидку</button>
                             </div>
                         </div>
@@ -514,7 +514,8 @@
                 <input type="text" id="name_11" name="user_name" placeholder="Ваше имя" required>
                 <label for="phone_11">Ваш телефон для получения скидки</label>
                 <input class="phone-user" type="text" id="phone_11" name="user_phone" placeholder="+7(___)___-__-__"
-                       required>
+                required>
+                <!-- <input type='text' name="summ" id='summ' style="display: none;"> -->                
                 <button class="button capture-form-btn" name="submit" type="submit">Заказать со скидкой</button>
                 <p class="small">Вы получите расчет стоимости с учетом выбора <br>подходящего объема септика. типа
                     грунта, <br> расположения объектов на участке, уровня грунтовых <br> вод, типа фундамента дома и еще
