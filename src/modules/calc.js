@@ -23,13 +23,9 @@ const calc = () => {
 
         if (checkboxOne && checkboxOne.checked) { // выбрано две камеры
           secondWell.style.display = 'block';
-          //diameterTwo.classList.add('calculator');
-          //ringsTwo.classList.add('calculator');
           result = 15000;
         } else if (checkboxOne && !checkboxOne.checked) { // выбрана одна камера
           secondWell.style.display = 'none';
-          //diameterTwo.classList.remove('calculator');
-          //ringsTwo.classList.remove('calculator');
           result = 10000;
         }
         // диаметр
