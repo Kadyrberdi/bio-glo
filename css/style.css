@@ -569,6 +569,7 @@ header .logo img {
 }
 
 .constructor .construct-btn:hover {
+  cursor: pointer;
   color: #fff
 }
 

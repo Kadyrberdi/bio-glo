@@ -11,9 +11,9 @@ const sendForm = () => {
         popupDiscount = document.querySelector('.popup-discount'),
         calcResult = document.getElementById('calc-result'),
         distance = document.getElementById('distance'),
-        phone = document.querySelectorAll('input[name="user_phone"]'),   
-        userQuestion = document.querySelector('input[name="user_quest"]'), 
         quest = document.querySelector('#quest'),  
+        userQuestion = document.querySelectorAll('input[name="user_quest"]'), 
+        phone = document.querySelectorAll('input[name="user_phone"]'),   
         name = document.querySelectorAll('input[name="user_name"]');  
         
         const statusMessage = document.createElement('div');
@@ -98,7 +98,7 @@ const sendForm = () => {
 
         directorForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            let questions = userQuestion.value;
+            let questions = userQuestion[0].value;
             quest.value = questions;
             popupConsultation.style.display = 'block';
         });
@@ -128,6 +128,12 @@ const sendForm = () => {
             elem.addEventListener('input', validator);
         });
         name.forEach(elem => {
+            const validator = function () {
+                elem.value = elem.value.replace(/[^а-яА-Я \ ]/ig, '');
+            };
+            elem.addEventListener('input', validator);
+        });
+        userQuestion.forEach((elem) =>  {
             const validator = function () {
                 elem.value = elem.value.replace(/[^а-яА-Я \ ]/ig, '');
             };
